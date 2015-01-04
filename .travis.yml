@@ -1,8 +1,8 @@
 language: haskell
 env:
   - GHC_VERSION=7.8
-  #- GHC_VERSION=7.6
-  #- GHC_VERSION=7.4
+  - GHC_VERSION=7.6
+  - GHC_VERSION=platform
 
 before_install:
   - date
@@ -15,11 +15,21 @@ before_install:
   - cat /home/travis/.cabal/config
   - find /usr/local/ghc/*/bin -type f -ls
 install:
-  - sudo apt-get --purge remove cabal-install
-  - apt-cache show cabal-install
-  - sudo apt-get install haskell-platform haskell-platform-prof haskell-platform-doc cabal-install
+  - case "$GHC_VERSION" in
+      platform)
+        sudo apt-get --purge remove cabal-install ;
+        sudo apt-get install haskell-platform haskell-platform-prof haskell-platform-doc cabal-install=0.14.0-2 ;
+        export PATH=/usr/bin:$PATH
+        ;;
+
+      *)
+        export PATH=/usr/local/ghc/$(ghc_find $GHC_VERSION)/bin:$PATH
+        ;;
+    esac
   - dpkg -l ghc
   - dpkg -l cabal-install
+  - which ghc
+  - which cabal-install
   - echo install
 script:
   - echo script
