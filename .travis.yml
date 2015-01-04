@@ -9,6 +9,8 @@ before_install:
   - echo $PATH
   - which cabal
   - which runghc
+  - dpkg -l cabal-install
+  - dpkg -S /usr/bin/cabal
   - cat /home/travis/.cabal/config
   - find /usr/local/ghc/*/bin -type f -ls
 install:
