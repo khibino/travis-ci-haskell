@@ -8,11 +8,9 @@ before_install:
   - date
   - echo $PATH
   - find /usr/local/ghc -type f -ls
-
 install:
-
+  - echo install
 script:
   - echo script
-
 after_script:
   - date
