@@ -1,0 +1,14 @@
+language: haskell
+  - 7.8
+  - 7.6
+  - 7.4
+
+before_install:
+  - echo $PATH
+  - find /usr/local/ghc -type f -ls
+
+install:
+
+script:
+
+after_script:
