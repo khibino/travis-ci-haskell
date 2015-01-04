@@ -7,8 +7,10 @@ ghc:
 before_install:
   - date
   - echo $PATH
+  - which cabal
+  - which runghc
   - cat /home/travis/.cabal/config
-  - find /usr/local/ghc -type f -ls
+  - find /usr/local/ghc/*/bin -type f -ls
 install:
   - echo install
 script:
