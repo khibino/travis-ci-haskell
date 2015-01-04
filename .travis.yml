@@ -16,6 +16,7 @@ before_install:
   - find /usr/local/ghc/*/bin -type f -ls
 install:
   - sudo apt-get --purge remove cabal-install
+  - apt-cache show cabal-install
   - sudo apt-get install haskell-platform haskell-platform-prof haskell-platform-doc cabal-install
   - dpkg -l ghc
   - dpkg -l cabal-install
