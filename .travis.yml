@@ -11,9 +11,12 @@ before_install:
   - which runghc
   - dpkg -l cabal-install
   - dpkg -S /usr/bin/cabal
+  - sudo apt-get update
   - cat /home/travis/.cabal/config
   - find /usr/local/ghc/*/bin -type f -ls
 install:
+  - sudo apt-get install haskell-platform haskell-platform-prof haskell-platform-doc
+  - dpkg -l ghc
   - echo install
 script:
   - echo script
