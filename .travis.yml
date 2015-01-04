@@ -7,8 +7,8 @@ env:
 before_install:
   - date
   - echo $PATH
+  - which ghc
   - which cabal
-  - which runghc
   - dpkg -l cabal-install
   - dpkg -S /usr/bin/cabal
   - sudo apt-get update
@@ -28,8 +28,9 @@ install:
     esac
   - dpkg -l ghc
   - dpkg -l cabal-install
+  - echo $PATH
   - which ghc
-  - which cabal-install
+  - which cabal
   - echo install
 script:
   - echo script
