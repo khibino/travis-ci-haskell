@@ -5,12 +5,9 @@ env:
   - GHC_VERSION=platform
 before_install:
   - date
-  - checkpkg() {
-      echo $PATH ;
-      which ghc   ; ghc --version   ; dpkg -l ghc
-      which cabal ; cabal --version ; dpkg -l cabal-install
-    }
-  - checkpkg
+  - echo $PATH
+  - which ghc   ; ghc --version   ; dpkg -l ghc
+  - which cabal ; cabal --version ; dpkg -l cabal-install
   - sudo apt-get update
   - find /usr/local/ghc/*/bin -type f -ls
   - case "$GHC_VERSION" in
@@ -24,7 +21,9 @@ before_install:
         export PATH=/usr/local/ghc/$(ghc_find $GHC_VERSION)/bin:$PATH
         ;;
     esac
-  - checkpkg
+  - echo $PATH
+  - which ghc   ; ghc --version   ; dpkg -l ghc
+  - which cabal ; cabal --version ; dpkg -l cabal-install
   - rm /home/travis/.cabal/config ; cabal update
 after_script:
   - date
