@@ -25,9 +25,5 @@ before_install:
   - which ghc   ; ghc --version   ; dpkg -l ghc
   - which cabal ; cabal --version ; dpkg -l cabal-install
   - rm /home/travis/.cabal/config ; cabal update
-install:
-  - echo install
-script:
-  - echo script
 after_script:
   - date
