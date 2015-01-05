@@ -1,0 +1,14 @@
+name:                empty-package
+version:             0.1.0.0
+synopsis:            Empty package
+description:         Empty package
+license:             BSD3
+license-file:        LICENSE
+author:              Kei Hibino
+maintainer:          ex8k.hibino@gmail.com
+category:            Testing
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  default-language:    Haskell2010
