@@ -11,4 +11,18 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  default-language:    Haskell2010
+  exposed-modules:
+                     TestDatas
+  build-depends:     base <5
+  hs-source-dirs:    src
+  default-language:  Haskell2010
+
+
+test-suite use-test-framework
+  type:             exitcode-stdio-1.0
+  main-is:          UseTestFramework.hs
+  hs-source-dirs:   tests
+  build-depends:    base <5, travis-ci-test-package,
+                    test-framework,
+                    test-framework-quickcheck2, QuickCheck
+  default-language: Haskell2010
