@@ -1,7 +1,7 @@
-name:                empty-package
+name:                travis-ci-test-package
 version:             0.1.0.0
-synopsis:            Empty package
-description:         Empty package
+synopsis:            Test package for travis CI
+description:         Test package for travis CI
 license:             BSD3
 license-file:        LICENSE
 author:              Kei Hibino
