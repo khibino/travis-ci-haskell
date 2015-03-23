@@ -18,11 +18,10 @@ library
   default-language:  Haskell2010
 
 
-test-suite use-test-framework
+test-suite use-quickcheck2
   type:             exitcode-stdio-1.0
-  main-is:          UseTestFramework.hs
+  main-is:          UseQuickCheck2.hs
   hs-source-dirs:   tests
   build-depends:    base <5, travis-ci-test-package,
-                    test-framework,
-                    test-framework-quickcheck2, QuickCheck
+                    QuickCheck >=2
   default-language: Haskell2010
