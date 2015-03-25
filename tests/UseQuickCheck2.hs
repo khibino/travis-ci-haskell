@@ -2,7 +2,7 @@
 import TestDatas (int1, stringHello)
 
 import Control.Applicative ((<$>))
-import Control.Monad (unless)
+import Control.Monad (when, unless)
 import Data.Maybe (catMaybes)
 import System.IO (stderr, hPutStrLn)
 import Test.QuickCheck
@@ -20,14 +20,17 @@ runMayError (m, prop) = fmap ((,) m) . err <$> quickCheckResult prop  where
   err (Success {})  =  Nothing
   err x             =  Just x
 
-run :: [Test] -> IO ()
-run xs = do
+defaultMain' :: Bool -> [Test] -> IO ()
+defaultMain' verbose xs = do
   es <- catMaybes <$> mapM runMayError xs
-  mapM_ (\(m, r) -> hPutStrLn stderr $ m ++ ":\n" ++ show r) es
+  when verbose $ mapM_ (\(m, r) -> hPutStrLn stderr $ m ++ ":\n" ++ show r) es
   unless (null es) $ fail "Found some failures."
 
+defaultMain :: [Test] -> IO ()
+defaultMain = defaultMain' False
+
 main :: IO ()
-main = run tests
+main = defaultMain tests
 
 
 prop_int1 :: Bool
