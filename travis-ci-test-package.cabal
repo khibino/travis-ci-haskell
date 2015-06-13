@@ -18,9 +18,9 @@ library
   default-language:  Haskell2010
 
 
-test-suite use-quickcheck2
+test-suite use-quickcheck-simple
   type:             exitcode-stdio-1.0
-  main-is:          UseQuickCheck2.hs
+  main-is:          useQuickCheckSimple.hs
   hs-source-dirs:   tests
   build-depends:    base <5, travis-ci-test-package,
                     quickcheck-simple
