@@ -23,5 +23,5 @@ test-suite use-quickcheck2
   main-is:          UseQuickCheck2.hs
   hs-source-dirs:   tests
   build-depends:    base <5, travis-ci-test-package,
-                    QuickCheck >=2
+                    quickcheck-simple
   default-language: Haskell2010
