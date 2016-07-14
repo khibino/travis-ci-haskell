@@ -24,6 +24,7 @@ library
                      DeriveFunctor
                      DeriveFoldable
                      DeriveTraversable
+                     -- DeriveGeneric
                      StandaloneDeriving
 
   build-depends:     base <5
