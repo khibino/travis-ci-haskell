@@ -17,6 +17,15 @@ tested-with:           GHC == 7.4.1, GHC == 7.4.2
 library
   exposed-modules:
                      TestDatas
+  other-extensions:
+                     TypeOperators
+                     FlexibleContexts
+                     OverloadedStrings
+                     DeriveFunctor
+                     DeriveFoldable
+                     DeriveTraversable
+                     StandaloneDeriving
+
   build-depends:     base <5
   hs-source-dirs:    src
   default-language:  Haskell2010
