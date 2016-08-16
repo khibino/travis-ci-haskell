@@ -13,7 +13,7 @@ before_cache:
 
 matrix:
   include:
-    - env: DEBIANVER=wheezy
+    - env: DEBIANVER=wheezy CABALVER=1.16 GHCVER=7.4.1
       compiler: ": Debian wheezy"
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
     - env: CABALVER=1.16 GHCVER=7.4.1
