@@ -58,16 +58,16 @@ matrix:
 
 before_install:
  - unset CC
+ - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
  - case "$DEBIANVER" in
      wheezy)
        echo "constraints:text==0.11.2.0,transformers==0.3.0.0,dlist==0.5" > cabal.config ;
        travis_retry cabal update -v ;
-       cabal install dlist
+       travis_retry cabal install dlist
      ;;
      *)
      ;;
    esac
- - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
 
 install:
  - cabal --version
