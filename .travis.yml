@@ -13,6 +13,9 @@ before_cache:
 
 matrix:
   include:
+    - env: HASKELL_PLATFORM=2012.2
+      compiler: ": #GHC 7.4.1 with HP 2012.2"
+      addons: {apt: {packages: [haskell-platform,haskell-platform-prof,haskell-platform-doc,cabal-install=0.14.0-2,libghc-dlist-dev]}}
     - env: CABALVER=1.16 GHCVER=7.4.1
       compiler: ": #GHC 7.4.1"
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
@@ -55,7 +58,18 @@ matrix:
 
 before_install:
  - unset CC
- - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+ - case "$HASKELL_PLATFORM" in
+     2012.2)
+       rm /home/travis/.cabal/config ;
+       cabal update ;
+       ls -l /usr/local/ghc/ ;
+        libghc-dlist-dev
+       export PATH=/usr/local/ghc/7.4.1/bin:/usr/bin:$PATH
+     ;;
+     *)
+       export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+     ;;
+   esac
 
 install:
  - cabal --version
