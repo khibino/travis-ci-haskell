@@ -1,5 +1,5 @@
 # This file has been generated -- see https://github.com/hvr/multi-ghc-travis
-language: haskell
+language: c
 sudo: false
 
 cache:
@@ -13,10 +13,9 @@ before_cache:
 
 matrix:
   include:
-    - ghc: 7.4
-      env: HASKELL_PLATFORM=2012.2
-      compiler: ": #GHC 7.4.1 with HP 2012.2"
-      addons: {apt: {packages: [haskell-platform,haskell-platform-prof,haskell-platform-doc]}}
+    - env: DEBIANVER=wheezy
+      compiler: ": Debian wheezy"
+      addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
     - env: CABALVER=1.16 GHCVER=7.4.1
       compiler: ": #GHC 7.4.1"
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
@@ -59,18 +58,16 @@ matrix:
 
 before_install:
  - unset CC
- - case "$HASKELL_PLATFORM" in
-     2012.2)
+ - case "$DEBIANVER" in
+     wheezy)
+       echo "constraints:text==0.11.2.0,transformers==0.3.0.0,dlist==0.5" > cabal.config ;
        travis_retry cabal update -v ;
-       cabal install dlist-0.5
+       cabal install dlist
      ;;
-
      *)
-       export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
      ;;
    esac
- - echo $PATH
- - which cabal
+ - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
 
 install:
  - cabal --version
