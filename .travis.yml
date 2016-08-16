@@ -61,14 +61,16 @@ before_install:
  - unset CC
  - case "$HASKELL_PLATFORM" in
      2012.2)
-       rm /home/travis/.cabal/config ;
-       cabal update ;
+       travis_retry cabal update -v ;
        cabal install dlist-0.5
      ;;
+
      *)
        export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
      ;;
    esac
+ - echo $PATH
+ - which cabal
 
 install:
  - cabal --version
