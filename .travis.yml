@@ -84,7 +84,7 @@ install:
 
 # check whether current requested install-plan matches cached package-db snapshot
 # - if diff -u installplan.txt $HOME/.cabsnap/installplan.txt;
-  - if false;
+ - if false;
    then
      echo "cabal build-cache HIT";
      rm -rfv .ghc;
