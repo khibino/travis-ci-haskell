@@ -59,7 +59,7 @@ matrix:
       addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.1], sources: [hvr-ghc]}}
 
 before_install:
- - ./before_install.sh
+ - ./before-install.sh
 
 install:
  - ./install.sh
