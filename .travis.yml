@@ -13,7 +13,7 @@ before_cache:
 
 matrix:
   include:
-    - env: STACK_RESOLVER=8.0.1
+    - env: STACK_RESOLVER=ghc-8.0.1
       compiler: ": STACK GHC 8.0.1"
     - env: DEBIANVER=wheezy CABALVER=1.16 GHCVER=7.4.1
       compiler: ": Debian wheezy"
