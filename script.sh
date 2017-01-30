@@ -1,12 +1,17 @@
 #!/bin/sh
 
 set -e
+
+. ./sh-lib
+
 set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
+    stack_path
     stack --resolver "$STACK_RESOLVER" build
     stack --resolver "$STACK_RESOLVER" test
 else
+    cabal_path
     if [ -f configure.ac ]; then autoreconf -i; fi
     cabal configure $CABAL_CONSTRAINTS --enable-tests --enable-benchmarks -v2  # -v2 provides useful information for debugging
     cabal build   # this builds all libraries and executables (including tests/benchmarks)
