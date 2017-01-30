@@ -10,3 +10,13 @@ custom_retry() {
         i=$(expr $i + 1)
     done
 }
+
+stack_path() {
+    PATH=$HOME/.local/bin:$PATH
+    export PATH
+}
+
+cabal_path() {
+    PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+    export PATH
+}
