@@ -8,7 +8,7 @@ set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
     stack_path
-    stack --resolver "$STACK_RESOLVER" setup
+    stack --skip-ghc-check --resolver "$STACK_RESOLVER" setup
     stack --resolver "$STACK_RESOLVER" install --only-dependencies
 else
     cabal_path
