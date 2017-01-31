@@ -50,12 +50,13 @@ before_install:
  - cat /proc/cpuinfo
  - if [ x"$STACK_RESOLVER" != x ];
    then
+     ./travis-CI/stack/before-install.sh ;
      export PATH=$HOME/.local/bin:$PATH ;
-     export STACK_YAML=stack-travis.yaml ;
+     export STACK_YAML=travis-CI/stack/stack.yaml ;
    else
      export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH ;
+     ./travis-CI/cabal-hvr-ghc/before-install.sh ;
    fi
- - ./before-install.sh
 
 install:
  - ./install.sh
