@@ -63,8 +63,8 @@ before_install:
        '')
          ;;
        *)
-         echo "Unsupported DEBIANVER: $DEBIANVER"
-         exit 1
+         echo "Unsupported DEBIANVER: $DEBIANVER" ;
+         exit 1 ;
          ;;
      esac
    fi

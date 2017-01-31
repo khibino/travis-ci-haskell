@@ -8,11 +8,6 @@ set -x
 
 cabal --version
 echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo '?')]"
-if [ -f $HOME/.cabal/packages/hackage.haskell.org/00-index.tar.gz ];
-then
-    zcat $HOME/.cabal/packages/hackage.haskell.org/00-index.tar.gz > \
-         $HOME/.cabal/packages/hackage.haskell.org/00-index.tar
-fi
 custom_retry cabal update -v
 sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
 cabal install $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks --dry -v > installplan.txt
