@@ -2,7 +2,7 @@
 
 set -e
 
-. ./sh-lib
+. ./travis-CI/sh-lib
 
 set -x
 
