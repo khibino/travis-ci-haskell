@@ -13,8 +13,14 @@ before_cache:
 
 matrix:
   include:
+    - env: STACK_RESOLVER=lts-5.18
+      compiler: ": # STACK GHC-7.10 LTS-5.18"
+      addons: {apt: {packages: [libgmp-dev]}}
+    - env: STACK_RESOLVER=lts-7.18
+      compiler: ": # STACK GHC-8.0.1 LTS-7.18"
+      addons: {apt: {packages: [libgmp-dev]}}
     - env: STACK_RESOLVER=ghc-8.0.1
-      compiler: ": # STACK GHC 8.0.1"
+      compiler: ": # STACK GHC-8.0.1"
       addons: {apt: {packages: [libgmp-dev]}}
     - env: DEBIANVER=wheezy CABALVER=1.16 GHCVER=7.4.1
       compiler: ": # Debian wheezy"
