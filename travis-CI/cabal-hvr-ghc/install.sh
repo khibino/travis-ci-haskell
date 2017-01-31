@@ -21,7 +21,7 @@ sed -i -e '1,/^Resolving /d' installplan.txt; cat installplan.txt
 cabsnap_dir=$HOME/.cabsnap/s-${CABALVER}
 
 # check whether current requested install-plan matches cached package-db snapshot
-if diff -u ${cabsnap_dir}/installplan.txt installplan.txt;
+if [ x"NO_CABAL_CACHE" = x ] && diff -u ${cabsnap_dir}/installplan.txt installplan.txt;
 then
     echo "cabal build-cache HIT";
     rm -rfv .ghc;
