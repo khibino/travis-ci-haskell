@@ -7,11 +7,9 @@ set -e
 set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
-    stack_path
     stack --skip-ghc-check --resolver "$STACK_RESOLVER" setup
     stack --resolver "$STACK_RESOLVER" install --only-dependencies
 else
-    cabal_path
     cabal --version
     echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo '?')]"
     if [ -f $HOME/.cabal/packages/hackage.haskell.org/00-index.tar.gz ];

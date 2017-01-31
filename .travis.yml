@@ -60,6 +60,11 @@ matrix:
       addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.1], sources: [hvr-ghc]}}
 
 before_install:
+ - if [ x"$STACK_RESOLVER" != x ]; then
+     export PATH=$HOME/.local/bin:$PATH
+   else
+     export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+   fi
  - ./before-install.sh
 
 install:
