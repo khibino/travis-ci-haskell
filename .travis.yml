@@ -69,5 +69,10 @@ install:
 # Here starts the actual work to be performed for the package under test;
 # any command which exits with a non-zero exit code causes the build to fail.
 script:
- - ./script.sh
+ - if [ x"$STACK_RESOLVER" != x ];
+   then
+     ./travis-CI/stack/script.sh ;
+   else
+     ./travis-CI/cabal-hvr-ghc/script.sh ;
+   fi
 # EOF
