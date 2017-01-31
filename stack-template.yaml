@@ -8,3 +8,4 @@ flags: {}
 extra-package-dbs: []
 system-ghc: false
 install-ghc: true
+skip-ghc-check: true
