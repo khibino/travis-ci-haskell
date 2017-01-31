@@ -2,5 +2,9 @@
 
 set -x
 
-stack setup
-stack install --only-dependencies
+install_package() {
+    stack setup
+    stack install --only-dependencies
+}
+
+install_package
