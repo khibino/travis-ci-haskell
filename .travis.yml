@@ -6,6 +6,7 @@ cache:
   directories:
     - $HOME/.cabsnap
     - $HOME/.cabal/packages
+    - $HOME/.stack
 
 before_cache:
   - rm -fv $HOME/.cabal/packages/hackage.haskell.org/build-reports.log
