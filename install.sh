@@ -8,7 +8,9 @@ set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
     stack --resolver "$STACK_RESOLVER" setup \
-          || ( cat /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/configure ; exit 1 )
+          || ( cd /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/ \
+                     && /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/configure \
+                            --prefix=/home/travis/.stack/programs/x86_64-linux/ghc-8.0.1 )
     stack --resolver "$STACK_RESOLVER" install --only-dependencies
 else
     cabal --version
