@@ -13,8 +13,8 @@ before_cache:
 
 matrix:
   include:
-    - env: STACK_RESOLVER=lts-5.18
-      compiler: ": # STACK GHC-7.10 LTS-5.18"
+    - env: STACK_RESOLVER=lts-6.29
+      compiler: ": # STACK GHC-7.10 LTS-6.29"
       addons: {apt: {packages: [libgmp-dev]}}
     - env: STACK_RESOLVER=lts-7.18
       compiler: ": # STACK GHC-8.0.1 LTS-7.18"
