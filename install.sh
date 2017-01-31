@@ -7,7 +7,7 @@ set -e
 set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
-    stack --skip-ghc-check --resolver "$STACK_RESOLVER" setup
+    stack --resolver "$STACK_RESOLVER" setup
     stack --resolver "$STACK_RESOLVER" install --only-dependencies
 else
     cabal --version
