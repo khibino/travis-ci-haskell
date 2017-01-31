@@ -7,8 +7,8 @@ set -e
 set -x
 
 if [ x"$STACK_RESOLVER" != x ]; then
-    stack --resolver "$STACK_RESOLVER" build
-    stack --resolver "$STACK_RESOLVER" test
+    stack build
+    stack test
 else
     if [ -f configure.ac ]; then autoreconf -i; fi
     cabal configure $CABAL_CONSTRAINTS --enable-tests --enable-benchmarks -v2  # -v2 provides useful information for debugging
