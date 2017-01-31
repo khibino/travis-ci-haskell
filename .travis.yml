@@ -52,7 +52,7 @@ before_install:
    then
      ./travis-CI/stack/before-install.sh ;
      export PATH=$HOME/.local/bin:$PATH ;
-     export STACK_YAML=travis-CI/stack/stack.yaml ;
+     export STACK_YAML=stack-travis.yaml ;
    else
      export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH ;
      ./travis-CI/cabal-hvr-ghc/before-install.sh ;
