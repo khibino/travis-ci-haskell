@@ -9,7 +9,7 @@ set -x
 if [ x"$STACK_RESOLVER" != x ]; then
     stack --resolver "$STACK_RESOLVER" setup \
           || ( cd /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/ \
-                     && /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/configure \
+                     && sh -x /home/travis/.stack/programs/x86_64-linux/ghc-8.0.1.temp/ghc-8.0.1/configure \
                             --prefix=/home/travis/.stack/programs/x86_64-linux/ghc-8.0.1 )
     stack --resolver "$STACK_RESOLVER" install --test --only-dependencies
 else
