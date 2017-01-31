@@ -47,6 +47,7 @@ matrix:
       addons: {apt: {packages: [cabal-install-1.24,ghc-8.0.1], sources: [hvr-ghc]}}
 
 before_install:
+ - cat /proc/cpuinfo
  - if [ x"$STACK_RESOLVER" != x ];
    then
      export PATH=$HOME/.local/bin:$PATH ;
