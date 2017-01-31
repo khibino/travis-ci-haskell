@@ -15,7 +15,6 @@ matrix:
   include:
     - env: STACK_RESOLVER=ghc-8.0.1
       compiler: ": STACK GHC 8.0.1"
-      addons: {apt: {packages: [gcc]}}
     - env: DEBIANVER=wheezy CABALVER=1.16 GHCVER=7.4.1
       compiler: ": Debian wheezy"
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
