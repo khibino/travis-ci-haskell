@@ -15,13 +15,19 @@ sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
 install_package() {
     id="$1"
 
-    cabal install $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks --dry -v > installplan.txt
-    sed -i -e '1,/^Resolving /d' installplan.txt; cat installplan.txt
+    if [ x"$id" = x ]; then
+        install_plan=installplan.txt
+    else
+        install_plan=installplan-${id}.txt
+    fi
+
+    cabal install $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks --dry -v > ${install_plan}
+    sed -i -e '1,/^Resolving /d' ${install_plan}; cat ${install_plan}
 
     cabsnap_dir=$HOME/.cabsnap/s-${CABALVER}
 
     # check whether current requested install-plan matches cached package-db snapshot
-    if [ x"NO_CABAL_CACHE" = x ] && diff -u ${cabsnap_dir}/installplan.txt installplan.txt;
+    if [ x"NO_CABAL_CACHE" = x ] && diff -u ${cabsnap_dir}/${install_plan} ${install_plan};
     then
         echo "cabal build-cache HIT";
         rm -rfv .ghc;
@@ -40,7 +46,7 @@ install_package() {
         echo "snapshotting package-db to build-cache";
         mkdir -p ${cabsnap_dir};
         cp -a $HOME/.ghc ${cabsnap_dir}/ghc;
-        cp -a $HOME/.cabal/lib $HOME/.cabal/share $HOME/.cabal/bin installplan.txt ${cabsnap_dir}/;
+        cp -a $HOME/.cabal/lib $HOME/.cabal/share $HOME/.cabal/bin ${install_plan} ${cabsnap_dir}/;
     fi
 }
 
