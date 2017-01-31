@@ -59,7 +59,12 @@ before_install:
    fi
 
 install:
- - ./install.sh
+ - if [ x"$STACK_RESOLVER" != x ];
+   then
+     ./travis-CI/stack/install.sh ;
+   else
+     ./travis-CI/cabal-hvr-ghc/install.sh ;
+   fi
 
 # Here starts the actual work to be performed for the package under test;
 # any command which exits with a non-zero exit code causes the build to fail.
