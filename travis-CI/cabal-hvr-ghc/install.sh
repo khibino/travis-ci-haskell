@@ -9,6 +9,7 @@ set -x
 
 cabal --version
 echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo '?')]"
+rm -f .cabal/packages/hackage.haskell.org/00-index.tar.gz
 custom_retry cabal update -v
 sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
 
