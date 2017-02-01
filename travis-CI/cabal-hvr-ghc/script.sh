@@ -1,6 +1,9 @@
 #!/bin/sh
 
 set -e
+
+. ./travis-CI/dirs.list
+
 set -x
 
 script_build() {
@@ -18,4 +21,10 @@ script_build() {
         (cd dist && cabal install --force-reinstalls "$SRC_TGZ")
 }
 
-script_build
+if [ x"$dirs" = x ]; then
+    script_build
+else
+    for d in dirs; do
+        ( cd $d && script_build )
+    done
+fi
