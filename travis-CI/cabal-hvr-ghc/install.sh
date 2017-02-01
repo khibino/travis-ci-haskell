@@ -12,7 +12,7 @@ echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo
 
 ## In package list cache hit case, cabal install may fail
 (
-    cd .cabal/packages/hackage.haskell.org/
+    cd $HOME/.cabal/packages/hackage.haskell.org/
     rm -f \
        00-index.tar.gz.etag \
        00-index.tar.gz \
