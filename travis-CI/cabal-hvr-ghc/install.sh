@@ -39,7 +39,7 @@ install_package() {
         echo "cabal build-cache MISS";
         rm -rf ${cabsnap_dir};
         mkdir -p $HOME/.ghc $HOME/.cabal/lib $HOME/.cabal/share $HOME/.cabal/bin;
-        cabal install $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks;
+        cabal install $CABAL_JOBS $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks;
     fi
 
     # snapshot package-db on cache miss
