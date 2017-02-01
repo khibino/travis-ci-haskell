@@ -21,7 +21,7 @@ install_package() {
 if [ x"$dirs" = x ]; then
     install_package
 else
-    for d in dirs; do
+    for d in $dirs; do
         ( cd $d && install_package )
     done
 fi
