@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 set -x
 
 checkout_root=$(pwd)
