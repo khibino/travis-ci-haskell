@@ -1,0 +1,50 @@
+name:                travis-ci-test-package-b
+version:             0.1.0.0
+synopsis:            Test package for travis CI
+description:         Test package for travis CI
+license:             BSD3
+license-file:        LICENSE
+author:              Kei Hibino
+maintainer:          ex8k.hibino@gmail.com
+category:            Testing
+build-type:          Simple
+cabal-version:       >=1.10
+tested-with:           GHC == 8.0.1
+                     , GHC == 7.10.2, GHC == 7.10.3
+                     , GHC == 7.8.3, GHC == 7.8.4
+                     , GHC == 7.6.2, GHC == 7.6.3
+                     , GHC == 7.4.1, GHC == 7.4.2
+
+library
+  exposed-modules:
+                     TestDatas
+  other-extensions:
+                     TypeOperators
+                     FlexibleContexts
+                     OverloadedStrings
+                     DeriveFunctor
+                     DeriveFoldable
+                     DeriveTraversable
+                     -- DeriveGeneric
+                     StandaloneDeriving
+
+  build-depends:     base <5
+  hs-source-dirs:    src
+  default-language:  Haskell2010
+
+
+test-suite use-quickcheck-simple
+  type:             exitcode-stdio-1.0
+  main-is:          useQuickCheckSimple.hs
+  hs-source-dirs:   tests
+  build-depends:    base <5, travis-ci-test-package-b,
+                    quickcheck-simple
+  default-language: Haskell2010
+
+source-repository head
+  type:       git
+  location:   https://github.com/khibino/travis-ci-haskell
+
+source-repository head
+  type:       mercurial
+  location:   https://bitbucket.org/khibino/travis-ci-haskell
