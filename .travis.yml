@@ -14,6 +14,7 @@ before_cache:
 
 matrix:
   include:
+    # nightly for ghc 8.0.2
     - env: STACK_RESOLVER=nightly-2017-01-31
       addons: {apt: {packages: [libgmp-dev]}}
     - env: STACK_RESOLVER=lts-7.18
