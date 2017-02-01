@@ -63,6 +63,13 @@ before_install:
          export CABAL_CONSTRAINTS='--constraint=transformers==0.3.0.0 --constraint=containers==0.4.2.1 --constraint=bytestring==0.9.2.1 --constraint=text==0.11.2.0 --constraint=time==1.4 --constraint=dlist==0.5 --constraint=convertible==1.0.11.1 --constraint=HDBC==2.3.1.1' ;
          ;;
        '')
+         case "$GHCVER" in
+           7.6.*|7.4.*)
+              export CABAL_CONSTRAINTS='--constraint=time==1.4'
+              ;;
+           *)
+              ;;
+         esac ;
          ;;
        *)
          echo "Unsupported DEBIANVER, $DEBIANVER" ;
