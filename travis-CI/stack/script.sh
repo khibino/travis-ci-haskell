@@ -15,6 +15,6 @@ if [ x"$dirs" = x ]; then
     script_build
 else
     for d in dirs; do
-        ( cd $d && script_build
+        ( cd $d && script_build )
     done
 fi
