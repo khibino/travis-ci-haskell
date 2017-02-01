@@ -9,8 +9,17 @@ set -x
 
 cabal --version
 echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo '?')]"
+
 ## In package list cache hit case, cabal install may fail
-rm -f .cabal/packages/hackage.haskell.org/00-index.tar.gz
+(
+    cd $HOME/.cabal/packages/hackage.haskell.org/
+    rm -f \
+       00-index.tar.gz.etag \
+       00-index.tar.gz \
+       00-index.tar \
+       00-index.cache
+)
+
 custom_retry cabal update -v
 sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
 
