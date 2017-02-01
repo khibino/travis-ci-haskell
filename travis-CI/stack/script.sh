@@ -1,6 +1,9 @@
 #!/bin/sh
 
 set -e
+
+. ./travis-CI/dirs.list
+
 set -x
 
 script_build() {
@@ -8,4 +11,10 @@ script_build() {
     STACK_YAML=stack-travis.yaml stack test --coverage
 }
 
-script_build
+if [ x"$dirs" = x ]; then
+    script_build
+else
+    for d in dirs; do
+        ( cd $d && script_build
+    done
+fi
