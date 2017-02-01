@@ -1,6 +1,9 @@
 #!/bin/sh
 
 set -e
+
+. ./travis-CI/dirs.list
+
 set -x
 
 checkout_root=$(pwd)
@@ -15,4 +18,10 @@ install_package() {
     STACK_YAML=stack-travis.yaml stack install --only-dependencies
 }
 
-install_package
+if [ x"$dirs" = x ]; then
+    install_package
+else
+    for d in dirs; do
+        ( cd $d && install_package )
+    done
+fi
