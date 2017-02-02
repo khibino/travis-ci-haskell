@@ -26,22 +26,22 @@ matrix:
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.1], sources: [hvr-ghc]}}
     - env: GHCVER=7.4.2 CABALVER=1.16
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.4.2], sources: [hvr-ghc]}}
-    # - env: GHCVER=7.6.1 CABALVER=1.16
-    #   addons: {apt: {packages: [cabal-install-1.16,ghc-7.6.1], sources: [hvr-ghc]}}
+    - env: GHCVER=7.6.1 CABALVER=1.16
+      addons: {apt: {packages: [cabal-install-1.16,ghc-7.6.1], sources: [hvr-ghc]}}
     - env: GHCVER=7.6.2 CABALVER=1.16
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.6.2], sources: [hvr-ghc]}}
     - env: GHCVER=7.6.3 CABALVER=1.16
       addons: {apt: {packages: [cabal-install-1.16,ghc-7.6.3], sources: [hvr-ghc]}}
-    # - env: GHCVER=7.8.1 CABALVER=1.18 CABAL_JOBS=-j
-    #   addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.1], sources: [hvr-ghc]}}
-    # - env: GHCVER=7.8.2 CABALVER=1.18 CABAL_JOBS=-j
-    #   addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.2], sources: [hvr-ghc]}}
+    - env: GHCVER=7.8.1 CABALVER=1.18 CABAL_JOBS=-j
+      addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.1], sources: [hvr-ghc]}}
+    - env: GHCVER=7.8.2 CABALVER=1.18 CABAL_JOBS=-j
+      addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.2], sources: [hvr-ghc]}}
     - env: GHCVER=7.8.3 CABALVER=1.18 CABAL_JOBS=-j
       addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.3], sources: [hvr-ghc]}}
     - env: GHCVER=7.8.4 CABALVER=1.18 CABAL_JOBS=-j
       addons: {apt: {packages: [cabal-install-1.18,ghc-7.8.4], sources: [hvr-ghc]}}
-    # - env: GHCVER=7.10.1 CABALVER=1.22 CABAL_JOBS=-j
-    #   addons: {apt: {packages: [cabal-install-1.22,ghc-7.10.1], sources: [hvr-ghc]}}
+    - env: GHCVER=7.10.1 CABALVER=1.22 CABAL_JOBS=-j
+      addons: {apt: {packages: [cabal-install-1.22,ghc-7.10.1], sources: [hvr-ghc]}}
     - env: GHCVER=7.10.2 CABALVER=1.22 CABAL_JOBS=-j
       addons: {apt: {packages: [cabal-install-1.22,ghc-7.10.2], sources: [hvr-ghc]}}
     - env: GHCVER=7.10.3 CABALVER=1.22 CABAL_JOBS=-j
