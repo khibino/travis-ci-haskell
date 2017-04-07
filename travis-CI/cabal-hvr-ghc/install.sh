@@ -24,6 +24,7 @@ echo "$(ghc --version) [$(ghc --print-project-git-commit-id 2> /dev/null || echo
 
 custom_retry cabal update -v
 sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
+cat ${HOME}/.cabal/config
 
 install_package() {
     cabal install -v2 $CABAL_JOBS $CABAL_CONSTRAINTS --only-dependencies --enable-tests --enable-benchmarks
