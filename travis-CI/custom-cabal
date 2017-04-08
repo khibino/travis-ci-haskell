@@ -14,6 +14,7 @@ constraints:   transformers == 0.3.0.0
              , dlist == 0.5
              , convertible == 1.0.11.1
              , HDBC == 2.3.1.1
+constraint: persistable-record +ghc74-generic
 EOF
 }
 
@@ -22,6 +23,7 @@ cabal_ghc74() {
     cat <<EOF
 flags: +ghc74-generic
 constraints:   time == 1.4
+constraint: persistable-record +ghc74-generic
 EOF
 }
 
