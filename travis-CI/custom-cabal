@@ -5,7 +5,6 @@
 cabal_wheezy() {
     cabal_common
     cat <<EOF
-flags: +ghc74-generic
 constraints:   transformers == 0.3.0.0
              , containers == 0.4.2.1
              , bytestring == 0.9.2.1
@@ -23,7 +22,6 @@ EOF
 cabal_ghc74() {
     cabal_common
     cat <<EOF
-flags: +ghc74-generic
 constraints:   time == 1.4
 constraint: persistable-record +ghc74-generic
 constraint: relational-query +ghc74-generic
