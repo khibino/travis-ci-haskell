@@ -13,7 +13,7 @@ script_build() {
     rm -rf .ghc.environment.* dist/
     cabal sdist # test that a source-distribution can be generated
     cd dist/
-    SRCTAR=${PKGNAME}-*.tar.gz
+    SRCTAR=$(echo ${PKGNAME}-*.tar.gz)
     SRC_BASENAME="${SRCTAR%.tar.gz}"
     tar -xvf "./${SRC_BASENAME}.tar.gz"
     cd "$SRC_BASENAME/"
