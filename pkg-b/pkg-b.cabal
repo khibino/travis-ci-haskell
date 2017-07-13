@@ -1,4 +1,4 @@
-name:                travis-ci-test-package
+name:                pkg-b
 version:             0.1.0.0
 synopsis:            Test package for travis CI
 description:         Test package for travis CI
@@ -31,7 +31,6 @@ library
   build-depends:       base <5
                      , time
                      , time-locale-compat
-                     , relational-query-HDBC
   hs-source-dirs:    src
   default-language:  Haskell2010
 
@@ -40,7 +39,7 @@ test-suite use-quickcheck-simple
   type:             exitcode-stdio-1.0
   main-is:          useQuickCheckSimple.hs
   hs-source-dirs:   tests
-  build-depends:    base <5, travis-ci-test-package,
+  build-depends:    base <5, pkg-b,
                     quickcheck-simple
   default-language: Haskell2010
 
