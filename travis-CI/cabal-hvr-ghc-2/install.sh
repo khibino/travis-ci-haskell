@@ -14,6 +14,7 @@ echo "$(${HC} --version) [$(${HC} --print-project-git-commit-id 2> /dev/null || 
 BENCH=${BENCH---enable-benchmarks}
 TEST=${TEST---enable-tests}
 
+gen_custom_cabal_config
 custom_retry cabal update -v
 sed -i 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config
 
