@@ -76,6 +76,7 @@ matrix:
 before_install:
  - if [ x"$STACK_RESOLVER" != x ];
    then
+     echo 'TRAVIS_BRANCH=' $TRAVIS_BRANCH ;
      ./travis-CI/stack/before-install.sh ;
      export PATH=$HOME/.local/bin:$PATH ;
      export STACK_YAML=stack-travis.yaml ;
