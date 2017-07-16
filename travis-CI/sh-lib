@@ -20,3 +20,13 @@ build-summary: ${HOME}/.cabal/logs/build.log
 remote-build-reporting: anonymous
 EOF
 }
+
+skip_not_lts_branch () {
+    case x"$TRAVIS_BRANCH" in
+        xlts-*)
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
