@@ -26,7 +26,13 @@ skip_not_lts_branch () {
         xlts-*)
             ;;
         *)
-            exit 0
+            case x"$STACK_RESOLVER" in
+                xlts-[678]*)
+                    exit 0
+                    ;;
+                *)
+                    ;;
+            esac
             ;;
     esac
 }
