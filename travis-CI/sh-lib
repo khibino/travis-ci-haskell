@@ -22,17 +22,42 @@ EOF
 }
 
 skip_not_lts_branch () {
-    case x"$TRAVIS_BRANCH" in
-        xlts-*)
-            ;;
-        *)
-            case x"$STACK_RESOLVER" in
-                xlts-[678]*)
-                    exit 0
+    set +x
+    cat <<EOF
+TRAVIS_BRANCH: $TRAVIS_BRANCH
+STACK_RESOLVER: $STACK_RESOLVER
+EOF
+    case x"$STACK_RESOLVER" in
+        xlts-[678]*)
+            case x"$TRAVIS_BRANCH" in
+                xlts-*)
+                    cat <<EOF
+STACK_RESOLVER is LTS and TRAVIS_BRANCH is LTS.
+EOF
                     ;;
                 *)
+                    cat <<EOF
+Skipping. STACK_RESOLVER is LTS and TRAVIS_BRANCH is NOT LTS.
+EOF
+                    set -x
+                    exit 0
+                    ;;
+            esac
+            ;;
+        *)
+            case x"$TRAVIS_BRANCH" in
+                xlts-*)
+                    cat <<EOF
+Skipping. STACK_RESOLVER is not LTS and TRAVIS_BRANCH is LTS
+EOF
+                    ;;
+                *)
+                    cat <<EOF
+STACK_RESOLVER is not LTS and TRAVIS_BRANCH is NOT LTS.
+EOF
                     ;;
             esac
             ;;
     esac
+    set -x
 }
