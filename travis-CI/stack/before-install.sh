@@ -6,7 +6,7 @@ set -e
 
 set -x
 
-skip_not_lts_branch
+skip_no_match_branch
 
 mkdir -p ~/.local/bin
 custom_retry curl -L https://www.stackage.org/stack/linux-x86_64 \

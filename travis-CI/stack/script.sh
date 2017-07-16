@@ -7,7 +7,7 @@ set -e
 
 set -x
 
-skip_not_lts_branch
+skip_no_match_branch
 
 script_build() {
     STACK_YAML=stack-travis.yaml stack build
