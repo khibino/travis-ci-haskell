@@ -24,8 +24,8 @@ EOF
 skip_not_lts_branch () {
     set +x
     cat <<EOF
-TRAVIS_BRANCH: $TRAVIS_BRANCH
 STACK_RESOLVER: $STACK_RESOLVER
+TRAVIS_BRANCH: $TRAVIS_BRANCH
 EOF
     case x"$STACK_RESOLVER" in
         xlts-[678]*)
