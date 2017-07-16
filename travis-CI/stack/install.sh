@@ -2,9 +2,12 @@
 
 set -e
 
+. ./travis-CI/sh-lib
 . ./travis-CI/dirs.list
 
 set -x
+
+skip_not_lts_branch
 
 checkout_root=$(pwd)
 
