@@ -13,7 +13,7 @@ checkout_root=$(pwd)
 
 install_package() {
     sed "s/^resolver: .*/resolver: ${STACK_RESOLVER}/" \
-        < $checkout_root/travis-CI/stack/template.yaml \
+        < $checkout_root/travis-CI/stack-each/template.yaml \
         > stack-travis.yaml
     ##    stack.yaml must be located the same directory which has *.cabal -- constraint of stack?
 
