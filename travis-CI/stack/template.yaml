@@ -1,0 +1,7 @@
+resolver: #foo
+
+extra-deps: []
+flags: {}
+extra-package-dbs: []
+system-ghc: false
+install-ghc: true
