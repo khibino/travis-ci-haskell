@@ -64,7 +64,7 @@ EOF
 
 show_stack_pkgs() {
     echo packages:
-    for d in dirs ; do
+    for d in $dirs ; do
         echo "  - ${d}/"
     done
     echo ''
