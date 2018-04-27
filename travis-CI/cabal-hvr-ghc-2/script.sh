@@ -12,8 +12,6 @@ TEST=${TEST---enable-tests}
 script_build() {
     PKGNAME="$1"
 
-    if [ -f configure.ac ]; then autoreconf -i; fi
-    rm -rf .ghc.environment.* dist/
     cabal sdist # test that a source-distribution can be generated
     cd dist/
     SRCTAR=$(echo ${PKGNAME}-*.tar.gz)
