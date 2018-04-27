@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -10,6 +10,8 @@ BENCH=${BENCH---enable-benchmarks}
 TEST=${TEST---enable-tests}
 HADDOCK=${HADDOCK-true}
 INSTALLED=${INSTALLED-true}
+
+## ghc-pkg path. ## substitution of bash
 HCPKG=${HC/ghc/ghc-pkg}
 
 script_build() {
