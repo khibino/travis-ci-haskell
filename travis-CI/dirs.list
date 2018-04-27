@@ -2,3 +2,7 @@ dirs='
 pkg-a
 pkg-b
 '
+
+test_pkgs='
+pkg-a
+'

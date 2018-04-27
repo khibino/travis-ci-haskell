@@ -38,6 +38,11 @@ script_build() {
 
     # build & run tests, build benchmarks
     cabal new-build -w ${HC} ${TEST} ${BENCH} all
+    for p in $test_pkgs ; do
+        if [ x$PKGNAME = x$p ]; then
+            cabal new-test -w ${HC} ${TEST} ${BENCH} all
+        fi
+    done
 
     # cabal check
     (cd ${PKGNAME}-* && cabal check)
