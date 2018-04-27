@@ -28,6 +28,22 @@ STACK_RESOLVER: $STACK_RESOLVER
 TRAVIS_BRANCH: $TRAVIS_BRANCH
 EOF
     case x"$STACK_RESOLVER" in
+        xlts-10.*|xlts-11.*)
+            case x"$TRAVIS_BRANCH" in
+                xmaster)
+                    cat <<EOF
+STACK_RESOLVER is LTS-1[01] and TRAVIS_BRANCH is master.
+EOF
+                    ;;
+                *)
+                    cat <<EOF
+Skipping. STACK_RESOLVER is LTS-10 and TRAVIS_BRANCH is NOT master.
+EOF
+                    set -x
+                    exit 0
+                    ;;
+            esac
+            ;;
         xlts-9.*)
             case x"$TRAVIS_BRANCH" in
                 xlts-9)
@@ -61,18 +77,10 @@ EOF
             esac
             ;;
         *)
-            case x"$TRAVIS_BRANCH" in
-                xlts-*)
-                    cat <<EOF
-Skipping. STACK_RESOLVER is not LTS and TRAVIS_BRANCH is LTS.
+            cat <<EOF
+Skipping. unknown STACK_RESOLVER
 EOF
-                    ;;
-                *)
-                    cat <<EOF
-STACK_RESOLVER is not LTS and TRAVIS_BRANCH is NOT LTS.
-EOF
-                    ;;
-            esac
+            exit 0
             ;;
     esac
     set -x
