@@ -32,7 +32,7 @@ EOF
             case x"$TRAVIS_BRANCH" in
                 xmaster)
                     cat <<EOF
-STACK_RESOLVER is LTS-1[01] and TRAVIS_BRANCH is master.
+STACK_RESOLVER is LTS-{10,11} and TRAVIS_BRANCH is master.
 EOF
                     ;;
                 *)
