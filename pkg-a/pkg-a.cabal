@@ -1,7 +1,7 @@
 name:                pkg-a
 version:             0.1.0.0
-synopsis:            Test package for travis CI
-description:         Test package for travis CI
+synopsis:            Test package A for travis CI
+description:         This is the test package A for travis CI
 license:             BSD3
 license-file:        LICENSE
 author:              Kei Hibino
