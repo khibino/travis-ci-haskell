@@ -41,6 +41,7 @@ script_build() {
     for p in $test_pkgs ; do
         if [ x$PKGNAME = x$p ]; then
             cabal new-test -w ${HC} ${TEST} ${BENCH} all
+            break
         fi
     done
 
