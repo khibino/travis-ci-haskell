@@ -23,7 +23,7 @@ script_build() {
     cd ${DISTDIR} || false
     find . -maxdepth 1 -name '*.tar.gz' -exec tar -xvf '{}' \;
 
-    printf 'packages: product-isomorphic-'*/*'.cabal\n' > cabal.project
+    printf "packages: ${PKGNAME}-"*/*'.cabal\n' > cabal.project
     cat cabal.project
 
     # this builds all libraries and executables (without tests/benchmarks)
