@@ -133,7 +133,7 @@ install:
     else
       CABAL_OPTS=""
     fi
-  - echo "cabal_opts: $CABAL_OPTS"
+  - echo cabal_opts: $CABAL_OPTS
   - travis_retry cabal update -v
   - "sed -i.bak 's/^jobs:/-- jobs:/' ${HOME}/.cabal/config"
   - rm -fv cabal.project cabal.project.local
