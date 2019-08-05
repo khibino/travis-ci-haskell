@@ -127,10 +127,9 @@ install:
   - UNCONSTRAINED=${UNCONSTRAINED-true}
   - NOINSTALLEDCONSTRAINTS=${NOINSTALLEDCONSTRAINTS-false}
   - GHCHEAD=${GHCHEAD-false}
-  - "echo $GHCHEAD"
   - |
     if $GHCHEAD; then
-      CABAL_OPTS="--allow-newer=base,time --flags=splitBase"
+      CABAL_OPTS="--allow-newer=base,time"
     else
       CABAL_OPTS=""
     fi
