@@ -1,0 +1,7 @@
+-- Cabal project configuration
+--
+-- See http://cabal.readthedocs.io/en/latest/nix-local-build.html for more
+-- information
+
+packages: ./pkg-a
+          ./pkg-b
